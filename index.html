@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>แบบประเมินความเสี่ยงการลงทุน</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
+<body>
+
+    <div class="container">
+        <h1>แบบประเมินความเสี่ยงด้านการลงทุน</h1>
+        <p>โปรดตอบคำถามต่อไปนี้ตามความเป็นจริงเพื่อประเมินระดับความเสี่ยงที่ท่านยอมรับได้</p>
+
+        <!-- ช่องกรอกชื่อ -->
+        <div class="question-block">
+            <p class="question">กรุณากรอกชื่อจริงหรือชื่อเล่นก่อนทำแบบประเมิน</p>
+            <input type="text" id="user-name" name="userName" placeholder="เช่น แพรว, คุณสมชาย" required />
+        </div>
+
+        <form id="risk-form">
+            <div class="question-block">
+                <p class="question">1. อายุของคุณอยู่ในช่วงใด?</p>
+                <label><input type="radio" name="q1" value="10" required> ต่ำกว่า 30 ปี</label>
+                <label><input type="radio" name="q1" value="20"> 30 - 50 ปี</label>
+                <label><input type="radio" name="q1" value="30"> มากกว่า 50 ปี</label>
+            </div>
+
+            <div class="question-block">
+                <p class="question">2. เป้าหมายหลักในการลงทุนของคุณคืออะไร?</p>
+                <label><input type="radio" name="q2" value="30" required> เพื่อรักษาเงินต้นให้ปลอดภัยที่สุด</label>
+                <label><input type="radio" name="q2" value="20"> เพื่อสร้างผลตอบแทนที่สูงกว่าเงินฝาก</label>
+                <label><input type="radio" name="q2" value="10"> เพื่อสร้างความมั่งคั่งในระยะยาว แม้จะมีความผันผวนสูง</label>
+            </div>
+
+            <div class="question-block">
+                <p class="question">3. ท่านยอมรับการขาดทุนของเงินลงทุนได้มากน้อยเพียงใด?</p>
+                <label><input type="radio" name="q3" value="30" required> ยอมรับไม่ได้เลย หรือได้ไม่เกิน 5%</label>
+                <label><input type="radio" name="q3" value="20"> ขาดทุนได้ไม่เกิน 15%</label>
+                <label><input type="radio" name="q3" value="10"> ขาดทุนได้เกิน 15% เพื่อโอกาสรับผลตอบแทนสูงขึ้น</label>
+            </div>
+
+            <div class="question-block">
+                <p class="question">4. ระยะเวลาที่คุณตั้งใจลงทุนเป็นกี่ปี?</p>
+                <label><input type="radio" name="q4" value="10" required> น้อยกว่า 1 ปี</label>
+                <label><input type="radio" name="q4" value="20"> 1 - 5 ปี</label>
+                <label><input type="radio" name="q4" value="30"> มากกว่า 5 ปี</label>
+            </div>
+
+            <div class="question-block">
+                <p class="question">5. เมื่อเห็นพอร์ตลงทุนติดลบ ท่านมีแนวโน้มทำอย่างไร?</p>
+                <label><input type="radio" name="q5" value="30" required> รีบขายเพื่อลดความเสียหาย</label>
+                <label><input type="radio" name="q5" value="20"> ถือรอดูสถานการณ์</label>
+                <label><input type="radio" name="q5" value="10"> ซื้อเพิ่มเพื่อลดต้นทุน</label>
+            </div>
+
+            <button type="submit" class="submit-btn">ประมวลผล</button>
+        </form>
+    </div>
+
+    <!-- Popup Modal -->
+    <div id="successModal" class="modal">
+      <div class="modal-content">
+        <span id="closeModal" class="close-btn">&times;</span>
+        <h2>ส่งข้อมูลสำเร็จ</h2>
+        <p>ข้อมูลของคุณถูกส่งให้ผู้ดูแลแล้ว กรุณารอการติดต่อกลับ</p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
