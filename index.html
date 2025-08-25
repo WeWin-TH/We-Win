@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WE WIN</title>
+  <link rel="stylesheet" href="/style.css">
+  <meta name="description" content="WE WIN - ฟอร์มลงทะเบียนลูกค้า ส่งข้อมูลเข้า Telegram ทันที">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>WE WIN</h1>
+      <p class="lead">ข้อมูลที่เป็นระบบ คือกุญแจสู่การวิเคราะห์เชิงลึกที่แม่นยำและก้าวทันทุกการเปลี่ยนแปลง</p>
+
+      <form id="regForm" class="grid" autocomplete="off" enctype="multipart/form-data">
+        <input type="text" name="hp_field" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="full">
+          <label for="fullName">ชื่อ-นามสกุล *</label>
+          <input type="text" id="fullName" name="fullName" required placeholder="กรุณากรอกชื่อ-นามสกุล">
+        </div>
+
+        <div>
+          <label for="lineName">Line name *</label>
+          <input type="text" id="lineName" name="lineName" required placeholder="ชื่อใน Line">
+        </div>
+
+        <div>
+          <label for="capital">จำนวนเงินทุน (บาท) *</label>
+          <input type="number" id="capital" name="capital" required inputmode="numeric" min="0" step="1000" placeholder="เช่น 50000">
+        </div>
+
+        <div class="full">
+          <label>กลุ่มหุ้นที่สนใจ (เลือกได้หลายข้อ)</label>
+          <div class="chips">
+            <div class="chip">
+              <input id="sec1" type="checkbox" name="sectors" value="พลังงาน"><label for="sec1">พลังงาน</label>
+            </div>
+            <div class="chip">
+              <input id="sec2" type="checkbox" name="sectors" value="ธนาคาร/การเงิน"><label for="sec2">ธนาคาร/การเงิน</label>
+            </div>
+            <div class="chip">
+              <input id="sec3" type="checkbox" name="sectors" value="เทคโนโลยี"><label for="sec3">เทคโนโลยี</label>
+            </div>
+            <div class="chip">
+              <input id="sec4" type="checkbox" name="sectors" value="อสังหา"><label for="sec4">อสังหา</label>
+            </div>
+            <div class="chip">
+              <input id="sec5" type="checkbox" name="sectors" value="สุขภาพ"><label for="sec5">สุขภาพ</label>
+            </div>
+            <div class="chip">
+              <input id="sec6" type="checkbox" name="sectors" value="ท่องเที่ยว/โรงแรม"><label for="sec6">ท่องเที่ยว/โรงแรม</label>
+            </div>
+        
+          </div>
+        </div>
+
+        <div class="full">
+          <label for="tradingStyle">สไตล์การเทรด *</label>
+          <select id="tradingStyle" name="tradingStyle" required>
+            <option value="">— เลือก —</option>
+            <option>Day Trade</option>
+            <option>Swing Trade</option>
+            <option>Position</option>
+            <option>DCA/Long-term</option>
+            <option>Algo/Quant</option>
+          </select>
+        </div>
+
+        <div class="full">
+          <label for="photo">อัปโหลดรูปภาพ QR code (ไม่บังคับ) — รองรับ JPG/PNG/WebP ขนาดไม่เกิน 5MB</label>
+          <input type="file" id="photo" name="photo" accept="image/jpeg,image/png,image/webp">
+        </div>
+
+        <div class="actions full">
+          <button type="submit">ส่งข้อมูล</button>
+          <button type="reset" class="ghost">ล้างข้อมูล</button>
+        </div>
+
+        <div id="status" class="full"></div>
+      </form>
+
+      <footer> © 2025 WE WIN All rights reserved. — ข้อมูลชัด เร็ว ปลอดภัย</footer>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
