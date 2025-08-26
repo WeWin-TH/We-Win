@@ -1,56 +1,79 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>WE WIN Registration</title>
-<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Reset & basic */
+  * { box-sizing: border-box; margin:0; padding:0; font-family:'Poppins',sans-serif; }
+  body { background: linear-gradient(135deg,#1f1c2c,#928dab); min-height:100vh; display:flex; justify-content:center; align-items:center; padding:20px; }
+  .card { background:#fff; border-radius:16px; box-shadow:0 8px 24px rgba(0,0,0,0.2); padding:30px; max-width:500px; width:100%; }
+  h1 { text-align:center; margin-bottom:10px; color:#333; }
+  form { display:grid; gap:15px; }
+  label { font-weight:600; margin-bottom:5px; display:block; color:#555; }
+  input[type=text], input[type=number], select, input[type=file] {
+    width:100%; padding:12px; border-radius:8px; border:1px solid #ccc; transition:0.3s; outline:none;
+  }
+  input:focus, select:focus { border-color:#6c63ff; box-shadow:0 0 6px rgba(108,99,255,0.4); }
+  .chips { display:flex; flex-wrap:wrap; gap:8px; }
+  .chip { display:flex; align-items:center; background:#f0f0f0; border-radius:16px; padding:5px 10px; cursor:pointer; transition:0.2s; }
+  .chip input { margin-right:5px; }
+  .chip:hover { background:#6c63ff; color:#fff; }
+  button { padding:12px; border:none; border-radius:12px; background:#6c63ff; color:#fff; font-weight:600; cursor:pointer; transition:0.3s; }
+  button:hover { background:#574fd6; }
+  button.ghost { background:#f0f0f0; color:#555; }
+  #photoPreviewContainer img { max-width:150px; border-radius:12px; margin-top:5px; box-shadow:0 4px 12px rgba(0,0,0,0.15); }
+  #status { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); padding:12px 20px; border-radius:20px; color:#fff; font-weight:600; display:none; opacity:0; transition:0.5s; }
+  #status.success { background:#4caf50; display:block; opacity:1; }
+  #status.error { background:#f44336; display:block; opacity:1; }
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1>WE WIN Registration</h1>
-    <form id="regForm" enctype="multipart/form-data">
-      <input type="text" name="hp_field" style="display:none" tabindex="-1" autocomplete="off">
+<div class="card">
+  <h1>WE WIN Registration</h1>
+  <form id="regForm" enctype="multipart/form-data">
+    <input type="text" name="hp_field" style="display:none" autocomplete="off">
 
-      <label>ชื่อ-นามสกุล *</label>
-      <input type="text" name="fullName" required>
+    <label>ชื่อ-นามสกุล *</label>
+    <input type="text" name="fullName" required placeholder="กรอกชื่อ-นามสกุล">
 
-      <label>Line name *</label>
-      <input type="text" name="lineName" required>
+    <label>Line name *</label>
+    <input type="text" name="lineName" required placeholder="ชื่อใน Line">
 
-      <label>จำนวนเงินทุน (บาท) *</label>
-      <input type="number" name="capital" required min="0" step="1000">
+    <label>จำนวนเงินทุน (บาท) *</label>
+    <input type="number" name="capital" required min="0" step="1000" placeholder="เช่น 50000">
 
-      <label>กลุ่มหุ้นที่สนใจ</label>
-      <div>
-        <input type="checkbox" name="sectors" value="พลังงาน"> พลังงาน
-        <input type="checkbox" name="sectors" value="ธนาคาร/การเงิน"> ธนาคาร/การเงิน
-        <input type="checkbox" name="sectors" value="เทคโนโลยี"> เทคโนโลยี
-        <input type="checkbox" name="sectors" value="อสังหา"> อสังหา
-        <input type="checkbox" name="sectors" value="สุขภาพ"> สุขภาพ
-        <input type="checkbox" name="sectors" value="ท่องเที่ยว/โรงแรม"> ท่องเที่ยว/โรงแรม
-      </div>
+    <label>กลุ่มหุ้นที่สนใจ</label>
+    <div class="chips">
+      <div class="chip"><input type="checkbox" name="sectors" value="พลังงาน">พลังงาน</div>
+      <div class="chip"><input type="checkbox" name="sectors" value="ธนาคาร/การเงิน">ธนาคาร/การเงิน</div>
+      <div class="chip"><input type="checkbox" name="sectors" value="เทคโนโลยี">เทคโนโลยี</div>
+      <div class="chip"><input type="checkbox" name="sectors" value="อสังหา">อสังหา</div>
+      <div class="chip"><input type="checkbox" name="sectors" value="สุขภาพ">สุขภาพ</div>
+      <div class="chip"><input type="checkbox" name="sectors" value="ท่องเที่ยว/โรงแรม">ท่องเที่ยว/โรงแรม</div>
+    </div>
 
-      <label>สไตล์การเทรด *</label>
-      <select name="tradingStyle" required>
-        <option value="">— เลือก —</option>
-        <option>Day Trade</option>
-        <option>Swing Trade</option>
-        <option>Position</option>
-        <option>DCA/Long-term</option>
-        <option>Algo/Quant</option>
-      </select>
+    <label>สไตล์การเทรด *</label>
+    <select name="tradingStyle" required>
+      <option value="">— เลือก —</option>
+      <option>Day Trade</option>
+      <option>Swing Trade</option>
+      <option>Position</option>
+      <option>DCA/Long-term</option>
+      <option>Algo/Quant</option>
+    </select>
 
-      <label>รูป QR code (ไม่บังคับ)</label>
-      <input type="file" name="photo" id="photo" accept="image/*">
-      <div id="photoPreviewContainer"></div>
+    <label>รูป QR code (ไม่บังคับ)</label>
+    <input type="file" name="photo" id="photo" accept="image/*">
+    <div id="photoPreviewContainer"></div>
 
-      <button type="submit">ส่งข้อมูล</button>
-      <button type="reset">ล้างข้อมูล</button>
+    <button type="submit">ส่งข้อมูล</button>
+    <button type="reset" class="ghost">ล้างข้อมูล</button>
+  </form>
+</div>
 
-      <div id="status"></div>
-    </form>
-  </div>
+<div id="status"></div>
 
 <script>
 const form = document.getElementById('regForm');
@@ -61,58 +84,44 @@ const previewContainer = document.getElementById('photoPreviewContainer');
 photoInput.addEventListener('change', () => {
   previewContainer.innerHTML = '';
   const file = photoInput.files[0];
-  if (file) {
+  if(file){
     const img = document.createElement('img');
-    img.style.maxWidth = '200px';
     img.src = URL.createObjectURL(file);
     previewContainer.appendChild(img);
   }
 });
 
-form.addEventListener('submit', async (e) => {
+form.addEventListener('submit', async (e)=>{
   e.preventDefault();
-  statusBox.innerHTML = '';
-  statusBox.className = '';
+  statusBox.className=''; statusBox.textContent=''; statusBox.style.opacity='0';
 
   const fd = new FormData(form);
 
-  // รวม checkbox sectors
   const sectors = [];
-  form.querySelectorAll('input[name="sectors"]:checked').forEach(el => sectors.push(el.value));
+  form.querySelectorAll('input[name="sectors"]:checked').forEach(el=>sectors.push(el.value));
   fd.delete('sectors');
   fd.append('sectors', sectors.join(', '));
 
-  statusBox.textContent = '⏳ กำลังส่งข้อมูล...';
+  statusBox.textContent = '⏳ กำลังส่งข้อมูล...'; statusBox.style.background='#2196f3'; statusBox.style.display='block'; statusBox.style.opacity='1';
 
-  try {
-    const resp = await fetch('https://wewin-backend.onrender.com/api/register', {
-      method: 'POST',
-      body: fd
-    });
+  try{
+    const resp = await fetch('https://wewin-backend.onrender.com/api/register', {method:'POST', body:fd});
+    const data = await resp.json().catch(()=>({}));
 
-    const data = await resp.json().catch(() => ({}));
-
-    if (data.ok) {
-      statusBox.className = 'success';
-      statusBox.textContent = data.message || '✅ ส่งสำเร็จ';
-      form.reset();
-      previewContainer.innerHTML = '';
-    } else {
-      statusBox.className = 'error';
-      statusBox.textContent = data.error || '❌ เกิดข้อผิดพลาด';
+    if(data.ok){
+      statusBox.className='success'; statusBox.textContent=data.message||'✅ ส่งสำเร็จ';
+      setTimeout(()=>{statusBox.style.opacity='0';},3000);
+      form.reset(); previewContainer.innerHTML='';
+    }else{
+      statusBox.className='error'; statusBox.textContent=data.error||'❌ เกิดข้อผิดพลาด';
+      setTimeout(()=>{statusBox.style.opacity='0';},4000);
     }
-  } catch (err) {
+  }catch(err){
     console.error(err);
-    statusBox.className = 'error';
-    statusBox.textContent = '❌ ไม่สามารถเชื่อมต่อ Server ได้';
+    statusBox.className='error'; statusBox.textContent='❌ ไม่สามารถเชื่อมต่อ Server ได้';
+    setTimeout(()=>{statusBox.style.opacity='0';},4000);
   }
 });
 </script>
-
-<style>
-#status.success { color: green; font-weight: bold; margin-top:10px; }
-#status.error { color: red; font-weight: bold; margin-top:10px; }
-#photoPreviewContainer img { border: 1px solid #ccc; padding: 2px; border-radius: 4px; margin-top: 5px; }
-</style>
 </body>
 </html>
