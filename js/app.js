@@ -8,7 +8,7 @@ form.addEventListener('submit', async (e) => {
   const fd = new FormData(form);
   
   try {
-    const resp = await fetch('https://wewin-backend.onrender.com/api/register', {
+    const resp = await fetch('https://wewin-backend-1.onrender.com/api/register', {
       method: 'POST',
       body: fd
     });
